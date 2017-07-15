@@ -12,10 +12,10 @@ public class Dog : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		Collider2D[] nearbyScentColliders = Physics2D.OverlapCircleAll (new Vector2(transform.position.x, transform.position.y), scentRadius, scentLayers);
-		Scent nearestScent = null;
+		Smellable nearestScent = null;
 		foreach (Collider2D collider in nearbyScentColliders) {
-			Scent scent = collider.gameObject.GetComponent<Scent> ();
-			if (!nearestScent || scent.creationFrame > nearestScent.creationFrame) {
+			Smellable scent = collider.gameObject.GetComponent<Smellable> ();
+			if (!nearestScent || scent.ScentStrength () > nearestScent.ScentStrength ()) {
 				nearestScent = scent;
 			}
 		}

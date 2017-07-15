@@ -52,10 +52,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 4
   scentRadius: 3
   scentLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
 --- !u!212 &212539148580439910
 SpriteRenderer:
   m_ObjectHideFlags: 1

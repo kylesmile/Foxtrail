@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fox : MonoBehaviour {
+public class Fox : Smellable {
 	public float movementSpeed = 1.0f;
 	public float scentDistance = 3.0f;
 	public Scent scentPrefab;
@@ -13,7 +13,7 @@ public class Fox : MonoBehaviour {
 	void FixedUpdate () {
 		float horizontal = Input.GetAxisRaw ("Horizontal");
 		float vertical = Input.GetAxisRaw ("Vertical");
-		Vector3 direction = new Vector3 (horizontal, vertical, 0) * movementSpeed * Time.fixedDeltaTime;
+		Vector3 direction = new Vector3 (horizontal, vertical, 0).normalized * movementSpeed * Time.fixedDeltaTime;
 
 		if (direction != Vector3.zero) {
 			animator.SetBool ("Moving", true);
@@ -30,5 +30,9 @@ public class Fox : MonoBehaviour {
 			accumulatedDistance = 0.0f;
 			Instantiate (scentPrefab, transform.position, transform.rotation);
 		}
+	}
+
+	public override float ScentStrength () {
+		return Mathf.Infinity;
 	}
 }
