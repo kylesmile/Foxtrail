@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 3d16c9e2c3ebf45109b56516e73c4dc4
-timeCreated: 1500147592
+timeCreated: 1500151275
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,10 @@ TextureImporter:
     21300006: Dog Run 3
     21300008: Dog Run 4
     21300010: Dog Run 5
+    21300012: Dog Kill 0
+    21300014: Dog Kill 1
+    21300016: Dog Kill 2
+    21300018: Dog Kill 3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -93,7 +97,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 14
-        y: 41
+        y: 148
         width: 87
         height: 25
       alignment: 0
@@ -107,7 +111,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 122
-        y: 40
+        y: 147
         width: 87
         height: 25
       alignment: 0
@@ -121,7 +125,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 231
-        y: 41
+        y: 148
         width: 83
         height: 24
       alignment: 0
@@ -135,7 +139,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 339
-        y: 41
+        y: 148
         width: 81
         height: 24
       alignment: 0
@@ -149,7 +153,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 443
-        y: 41
+        y: 148
         width: 84
         height: 24
       alignment: 0
@@ -163,8 +167,64 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 547
-        y: 41
+        y: 148
         width: 88
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dog Kill 0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 41
+        width: 87
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dog Kill 1
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 41
+        width: 86
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dog Kill 2
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 41
+        width: 87
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Dog Kill 3
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 41
+        width: 87
         height: 25
       alignment: 0
       pivot: {x: 0, y: 0}

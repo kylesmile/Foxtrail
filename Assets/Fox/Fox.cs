@@ -10,12 +10,17 @@ public class Fox : Smellable {
 
 	private Animator animator;
 	private float accumulatedDistance = 0.0f;
+	private bool dead = false;
 
 	void Start () {
 		animator = GetComponent<Animator> ();
 	}
 
 	void FixedUpdate () {
+		if (dead) {
+			return;
+		}
+
 		float horizontal = Input.GetAxisRaw ("Horizontal");
 		float vertical = Input.GetAxisRaw ("Vertical");
 		Vector3 direction = new Vector3 (horizontal, vertical, 0).normalized * movementSpeed * Time.fixedDeltaTime;
@@ -35,6 +40,11 @@ public class Fox : Smellable {
 			accumulatedDistance = 0.0f;
 			Instantiate (scentPrefab, transform.position, transform.rotation);
 		}
+	}
+
+	public void Die () {
+		dead = true;
+		animator.SetBool ("Dead", true);
 	}
 
 	public override float ScentStrength () {

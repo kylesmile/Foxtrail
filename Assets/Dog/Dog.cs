@@ -13,6 +13,7 @@ public class Dog : MonoBehaviour {
 	public LayerMask scentLayers;
 
 	private Animator animator;
+	private bool caughtFox = false;
 
 	void Start () {
 		animator = GetComponent<Animator> ();
@@ -20,6 +21,10 @@ public class Dog : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (caughtFox) {
+			return;
+		}
+
 		Smellable scent = Smell ();
 
 		if (scent) {
@@ -27,6 +32,11 @@ public class Dog : MonoBehaviour {
 		} else {
 			animator.SetBool ("Moving", false);
 		}
+	}
+
+	public void Kill () {
+		caughtFox = true;
+		animator.SetBool ("Kill", true);
 	}
 
 	private Smellable Smell () {
