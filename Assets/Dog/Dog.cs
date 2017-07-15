@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -21,6 +20,16 @@ public class Dog : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		Smellable scent = Smell ();
+
+		if (scent) {
+			RunTowardsScent (scent);
+		} else {
+			animator.SetBool ("Moving", false);
+		}
+	}
+
+	private Smellable Smell () {
 		Collider2D[] nearbyScentColliders = Physics2D.OverlapCircleAll (new Vector2(transform.position.x, transform.position.y), scentRadius, scentLayers);
 		Smellable nearestScent = null;
 		foreach (Collider2D collider in nearbyScentColliders) {
@@ -30,16 +39,16 @@ public class Dog : MonoBehaviour {
 			}
 		}
 
-		if (nearestScent) {
-			animator.SetBool ("Moving", true);
-			Vector3 direction = (nearestScent.transform.position - transform.position).normalized;
+		return nearestScent;
+	}
 
-			float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-			transform.Translate (transform.InverseTransformDirection (direction * movementSpeed * Time.fixedDeltaTime));
-		} else {
-			animator.SetBool ("Moving", false);
-		}
+	private void RunTowardsScent (Smellable scent) {
+		animator.SetBool ("Moving", true);
+		Vector3 direction = (scent.transform.position - transform.position).normalized;
+
+		float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
+		transform.Translate (transform.InverseTransformDirection (direction * movementSpeed * Time.fixedDeltaTime));
 	}
 
 	#if UNITY_EDITOR
