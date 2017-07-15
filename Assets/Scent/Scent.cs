@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class Scent : Smellable {
 	public float despawnTime = 5.0f;
@@ -17,8 +20,10 @@ public class Scent : Smellable {
 		return creationFrame;
 	}
 
+	#if UNITY_EDITOR
 	[DrawGizmo(GizmoType.Active | GizmoType.Selected | GizmoType.NotInSelectionHierarchy | GizmoType.Pickable)]
 	static void DrawScentLocation (Scent scent, GizmoType _gizmoType) {
 		Gizmos.DrawWireSphere (scent.transform.position, 0.5f);
 	}
+	#endif
 }

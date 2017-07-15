@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class Dog : MonoBehaviour {
 	public float movementSpeed = 1.0f;
@@ -29,8 +32,10 @@ public class Dog : MonoBehaviour {
 		}
 	}
 
+	#if UNITY_EDITOR
 	[DrawGizmo(GizmoType.Selected)]
 	static void DrawScentCircle (Dog dog, GizmoType _gizmoType) {
 		Gizmos.DrawWireSphere (dog.transform.position, dog.scentRadius);
 	}
+	#endif
 }
