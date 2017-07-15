@@ -11,9 +11,11 @@ public class Fox : Smellable {
 	private Animator animator;
 	private float accumulatedDistance = 0.0f;
 	private bool dead = false;
+	private MovementController movementController;
 
 	void Start () {
 		animator = GetComponent<Animator> ();
+		movementController = GetComponent<MovementController> ();
 	}
 
 	void FixedUpdate () {
@@ -23,13 +25,11 @@ public class Fox : Smellable {
 
 		float horizontal = Input.GetAxisRaw ("Horizontal");
 		float vertical = Input.GetAxisRaw ("Vertical");
-		Vector3 direction = new Vector3 (horizontal, vertical, 0).normalized * movementSpeed * Time.fixedDeltaTime;
+		Vector2 direction = new Vector2 (horizontal, vertical).normalized * movementSpeed * Time.fixedDeltaTime;
 
-		if (direction != Vector3.zero) {
+		if (direction != Vector2.zero) {
 			animator.SetBool ("Moving", true);
-			float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-			transform.Translate (transform.InverseTransformDirection (direction));
+			movementController.Move (direction);
 		} else {
 			animator.SetBool ("Moving", false);
 		}

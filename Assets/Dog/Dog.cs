@@ -14,9 +14,11 @@ public class Dog : MonoBehaviour {
 
 	private Animator animator;
 	private bool caughtFox = false;
+	private MovementController movementController;
 
 	void Start () {
 		animator = GetComponent<Animator> ();
+		movementController = GetComponent<MovementController> ();
 	}
 	
 	// Update is called once per frame
@@ -41,24 +43,21 @@ public class Dog : MonoBehaviour {
 
 	private Smellable Smell () {
 		Collider2D[] nearbyScentColliders = Physics2D.OverlapCircleAll (new Vector2(transform.position.x, transform.position.y), scentRadius, scentLayers);
-		Smellable nearestScent = null;
+		Smellable strongestScent = null;
 		foreach (Collider2D collider in nearbyScentColliders) {
 			Smellable scent = collider.gameObject.GetComponent<Smellable> ();
-			if (!nearestScent || scent.ScentStrength () > nearestScent.ScentStrength ()) {
-				nearestScent = scent;
+			if (!strongestScent || scent.ScentStrength () > strongestScent.ScentStrength ()) {
+				strongestScent = scent;
 			}
 		}
 
-		return nearestScent;
+		return strongestScent;
 	}
 
 	private void RunTowardsScent (Smellable scent) {
 		animator.SetBool ("Moving", true);
-		Vector3 direction = (scent.transform.position - transform.position).normalized;
-
-		float angle = Mathf.Atan2 (direction.y, direction.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-		transform.Translate (transform.InverseTransformDirection (direction * movementSpeed * Time.fixedDeltaTime));
+		Vector3 direction = (scent.transform.position - transform.position).normalized * movementSpeed * Time.fixedDeltaTime;
+		movementController.Move (new Vector2 (direction.x, direction.y));
 	}
 
 	#if UNITY_EDITOR
