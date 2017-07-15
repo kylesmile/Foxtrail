@@ -18,14 +18,14 @@ public class Fox : Smellable {
 		movementController = GetComponent<MovementController> ();
 	}
 
-	void FixedUpdate () {
+	void Update () {
 		if (dead) {
 			return;
 		}
 
 		float horizontal = Input.GetAxisRaw ("Horizontal");
 		float vertical = Input.GetAxisRaw ("Vertical");
-		Vector2 direction = new Vector2 (horizontal, vertical).normalized * movementSpeed * Time.fixedDeltaTime;
+		Vector2 direction = new Vector2 (horizontal, vertical).normalized * movementSpeed * Time.deltaTime;
 
 		if (direction != Vector2.zero) {
 			animator.SetBool ("Moving", true);

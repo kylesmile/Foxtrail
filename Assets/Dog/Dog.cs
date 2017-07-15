@@ -21,8 +21,7 @@ public class Dog : MonoBehaviour {
 		movementController = GetComponent<MovementController> ();
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		if (caughtFox) {
 			return;
 		}
@@ -56,7 +55,7 @@ public class Dog : MonoBehaviour {
 
 	private void RunTowardsScent (Smellable scent) {
 		animator.SetBool ("Moving", true);
-		Vector3 direction = (scent.transform.position - transform.position).normalized * movementSpeed * Time.fixedDeltaTime;
+		Vector3 direction = (scent.transform.position - transform.position).normalized * movementSpeed * Time.deltaTime;
 		movementController.Move (new Vector2 (direction.x, direction.y));
 	}
 
