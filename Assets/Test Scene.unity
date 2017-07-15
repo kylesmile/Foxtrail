@@ -365,3 +365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  scentDistance: 3
+  scentPrefab: {fileID: 114195442262601874, guid: b98606c75557c471184d08ee4f133339,
+    type: 2}
