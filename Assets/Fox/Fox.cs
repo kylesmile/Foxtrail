@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof (Animator))]
 public class Fox : Smellable {
 	public float movementSpeed = 1.0f;
 	public float scentDistance = 3.0f;
 	public Scent scentPrefab;
-	public Animator animator;
 
+	private Animator animator;
 	private float accumulatedDistance = 0.0f;
+
+	void Start () {
+		animator = GetComponent<Animator> ();
+	}
 
 	void FixedUpdate () {
 		float horizontal = Input.GetAxisRaw ("Horizontal");
