@@ -7,9 +7,15 @@ public class FoxController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		float horizontal = Input.GetAxis ("Horizontal") * Time.deltaTime * movementSpeed;
-		float vertical = Input.GetAxis ("Vertical") * Time.deltaTime * movementSpeed;
+		float horizontal = Input.GetAxisRaw ("Horizontal") * Time.deltaTime * movementSpeed;
+		float vertical = Input.GetAxisRaw ("Vertical") * Time.deltaTime * movementSpeed;
+		Vector3 direction = new Vector3 (horizontal, vertical, 0);
 
-		transform.Translate (horizontal, vertical, 0);
+
+		if (direction != Vector3.zero) {
+			float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+			transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+			transform.Translate (transform.InverseTransformDirection(direction));
+		}
 	}
 }
