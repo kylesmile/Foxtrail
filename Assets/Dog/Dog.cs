@@ -8,10 +8,13 @@ using UnityEditor;
 
 [RequireComponent(typeof (Animator))]
 public class Dog : MonoBehaviour {
+	public enum Direction { Forward = 1, Backward = -1 };
+
 	public float runSpeed = 3.0f;
-	public float walkSpeed = 1.0f;
 	public float scentRadius = 3.0f;
+	public float patrolSpeed = 1.0f;
 	public float patrolTurnFactor = 0.02f;
+	public Direction patrolDirection = Direction.Forward;
 	public LayerMask scentLayers;
 
 	private Animator animator;
@@ -66,7 +69,8 @@ public class Dog : MonoBehaviour {
 
 	private void Patrol () {
 		animator.SetBool ("Chasing", false);
-		Vector3 direction = transform.TransformDirection ((Vector3.right + Vector3.up * patrolTurnFactor).normalized) * walkSpeed * Time.fixedDeltaTime;
+		Vector3 movement = (Vector3.right + Vector3.up * patrolTurnFactor * (int)patrolDirection).normalized * patrolSpeed * Time.fixedDeltaTime;
+		Vector3 direction = transform.TransformDirection (movement);
 		movementController.Move (new Vector2 (direction.x, direction.y));
 	}
 
