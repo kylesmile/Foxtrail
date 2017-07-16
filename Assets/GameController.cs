@@ -8,11 +8,20 @@ public class GameController : MonoBehaviour {
 	public Fox foxPrefab;
 	public LevelEndpoint start;
 	public LevelEndpoint end;
+	public Camera2DFollow cameraFollow;
+
+	[Header("Cinematics")]
 	public EndGameScreen endScreen;
 	public ExpositionScreen expositionScreen;
+
+	[Header("Cinematics timing")]
+	public float startDelay = 0.5f;
+	public float showExpositionDelay = 1.0f;
+	public float expositionShowDuration = 3.0f;
+	public float foxEntranceDelay = 0.5f;
+	public float controlsActivationDelay = 0.75f;
 	public float endScreenDelay = 1.0f;
 	public float winEffectDelay = 2.0f;
-	public Camera2DFollow cameraFollow;
 
 	private Collider2D foxCollider;
 	private Collider2D endCollider;
@@ -33,7 +42,7 @@ public class GameController : MonoBehaviour {
 		Dog[] dogArray = FindObjectsOfType<Dog> ();
 		dogs = new List<Dog> (dogArray);
 
-		Invoke ("ShowExit", 0.5f);
+		Invoke ("ShowExit", startDelay);
 	}
 	
 	void FixedUpdate () {
@@ -61,23 +70,23 @@ public class GameController : MonoBehaviour {
 
 	void ShowExit () {
 		cameraFollow.SetTarget (end.onScreenTransform);
-		Invoke ("ShowExposition", 1.0f);
+		Invoke ("ShowExposition", showExpositionDelay);
 	}
 
 	void ShowExposition () {
 		expositionScreen.Show ();
-		Invoke ("FollowFox", 3.0f);
+		Invoke ("FollowFox", expositionShowDuration);
 	}
 
 	void FollowFox () {
 		expositionScreen.Hide ();
 		cameraFollow.SetTarget (fox.transform);
-		Invoke ("StartFox", 0.5f);
+		Invoke ("StartFox", foxEntranceDelay);
 	}
 
 	void StartFox () {
 		fox.Enter (start.OnScreen ());
-		Invoke ("ActivateControls", 0.75f);
+		Invoke ("ActivateControls", controlsActivationDelay);
 	}
 
 	void ActivateControls () {
