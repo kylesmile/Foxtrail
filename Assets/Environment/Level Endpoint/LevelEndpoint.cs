@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelEndpoint : MonoBehaviour {
 	public Transform offScreenTransform;
 	public Transform onScreenTransform;
+	public ExitEffect exitEffect;
 	public GameObject blocker;
 
 	public Vector2 OffScreen () {

@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour {
 	public EndGameScreen endScreen;
 	public ExpositionScreen expositionScreen;
 	public float endScreenDelay = 1.0f;
+	public float winEffectDelay = 2.0f;
 	public Camera2DFollow cameraFollow;
 
 	private Collider2D foxCollider;
@@ -33,9 +34,6 @@ public class GameController : MonoBehaviour {
 		dogs = new List<Dog> (dogArray);
 
 		Invoke ("ShowExit", 0.5f);
-//		Invoke ("FollowFox", 2.5f);
-//		Invoke ("StartFox", 3.0f);
-//		Invoke ("ActivateControls", 3.75f);
 	}
 	
 	void FixedUpdate () {
@@ -48,7 +46,7 @@ public class GameController : MonoBehaviour {
 			StopDogs ();
 			end.Unblock ();
 			fox.Exit (end.OffScreen ());
-			Invoke ("Win", endScreenDelay);
+			Invoke ("WinEffect", winEffectDelay);
 			return;
 		}
 
@@ -107,6 +105,11 @@ public class GameController : MonoBehaviour {
 
 	void Lose () {
 		endScreen.ShowLost ();
+	}
+
+	void WinEffect () {
+		end.exitEffect.Play ();
+		Invoke ("Win", endScreenDelay);
 	}
 
 	void Win () {

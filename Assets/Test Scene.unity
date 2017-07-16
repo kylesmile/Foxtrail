@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offScreenTransform: {fileID: 1959691593}
   onScreenTransform: {fileID: 1931228896}
+  exitEffect: {fileID: 684772661}
   blocker: {fileID: 1946098190}
 --- !u!61 &68338173
 BoxCollider2D:
@@ -1402,6 +1403,22 @@ MonoBehaviour:
   lookAheadFactor: 0
   lookAheadReturnSpeed: 0.5
   lookAheadMoveThreshold: 0.1
+--- !u!1 &684772658 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1969522194983536, guid: 92078b5e75e104cb98104ad4134f6253,
+    type: 2}
+  m_PrefabInternal: {fileID: 1191086039}
+--- !u!114 &684772661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684772658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d4a4bee342a420e9e0e60138f26b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &728087351 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4969139869520258, guid: 92078b5e75e104cb98104ad4134f6253,
@@ -1423,7 +1440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &818255888
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3331,6 +3348,7 @@ MonoBehaviour:
   endScreen: {fileID: 818255890}
   expositionScreen: {fileID: 1988962506}
   endScreenDelay: 1
+  winEffectDelay: 2
   cameraFollow: {fileID: 631641880}
 --- !u!4 &2033193113
 Transform:
