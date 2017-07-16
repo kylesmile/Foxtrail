@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 3
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 1
   patrolTurnFactor: 0.02

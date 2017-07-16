@@ -347,7 +347,7 @@ Prefab:
     - target: {fileID: 114292141649585280, guid: 00db4d19577fd49fab55d9fadabec193,
         type: 2}
       propertyPath: runSpeed
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114292141649585280, guid: 00db4d19577fd49fab55d9fadabec193,
         type: 2}
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.01
@@ -1621,7 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.02
@@ -2525,7 +2525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.004
@@ -2879,7 +2879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.004
@@ -3394,7 +3394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.015
@@ -3825,7 +3825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.012
@@ -4696,7 +4696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.015
@@ -6438,6 +6438,16 @@ Prefab:
       propertyPath: patrolDirection
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 114292141649585280, guid: 00db4d19577fd49fab55d9fadabec193,
+        type: 2}
+      propertyPath: runSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114292141649585280, guid: 00db4d19577fd49fab55d9fadabec193,
+        type: 2}
+      propertyPath: scentRadius
+      value: 1.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00db4d19577fd49fab55d9fadabec193, type: 2}
   m_IsPrefabParent: 0
@@ -6988,7 +6998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.01
@@ -8380,7 +8390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.0035
@@ -11892,7 +11902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.022
@@ -12521,7 +12531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.0035
@@ -12908,7 +12918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.02
@@ -13893,7 +13903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.0035
@@ -14836,7 +14846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 2
+  runSpeed: 4
   scentRadius: 1.2
   patrolSpeed: 0.75
   patrolTurnFactor: 0.01
