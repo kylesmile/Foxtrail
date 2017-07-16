@@ -237,13 +237,31 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 1
+        value: 0.5178566
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.23367575
+        value: 0.67131245
+        inSlope: -0.044107437
+        outSlope: -0.044107437
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.7903778
+        value: 0.69491357
+        inSlope: -0.28431416
+        outSlope: -0.28431416
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1
+        value: 0.48214394
         inSlope: 0
         outSlope: 0
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-      m_RotationOrder: 4
+      m_RotationOrder: 0
     colorGradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 1}
