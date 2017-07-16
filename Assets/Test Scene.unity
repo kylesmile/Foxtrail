@@ -1127,8 +1127,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &232872365
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1629,8 +1629,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &279832382
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2533,8 +2533,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &395307978
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2887,8 +2887,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &398893238
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3402,8 +3402,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &450894963
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3833,8 +3833,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &540676821
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4704,8 +4704,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &623545414
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6996,8 +6996,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &921900332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8388,8 +8388,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &1159651077
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11900,8 +11900,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &1732340951
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12529,8 +12529,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &1811872249
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12916,8 +12916,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &1901599208
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13901,8 +13901,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &2022310375
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14844,8 +14844,8 @@ MonoBehaviour:
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
-  spotSound: {fileID: 0}
-  killSound: {fileID: 0}
+  spotSound: {fileID: 8300000, guid: a2a84ff8c9ab744dda4eeafae3eaa885, type: 3}
+  killSound: {fileID: 8300000, guid: dcac45a4743ef4186850bb790606d972, type: 3}
 --- !u!212 &2114546914
 SpriteRenderer:
   m_ObjectHideFlags: 0
