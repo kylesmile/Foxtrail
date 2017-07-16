@@ -313,7 +313,7 @@ MonoBehaviour:
   skinWidth: 0.015
   obstacleLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 6144
 --- !u!212 &212888469116013390
 SpriteRenderer:
   m_ObjectHideFlags: 1

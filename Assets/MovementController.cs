@@ -15,12 +15,14 @@ public class MovementController : MonoBehaviour {
 	}
 
 	public void Move (Vector2 movement) {
-		float angle = Mathf.Atan2 (movement.y, movement.x) * Mathf.Rad2Deg;
-		rigidbody.MoveRotation (angle);
+		if (rigidbody) {
+			float angle = Mathf.Atan2 (movement.y, movement.x) * Mathf.Rad2Deg;
+			rigidbody.MoveRotation (angle);
 
-		Vector2 collidedMovement = CheckCollisions (movement);
-		Vector2 targetPosition = rigidbody.position + collidedMovement;
-		rigidbody.MovePosition (targetPosition);
+			Vector2 collidedMovement = CheckCollisions (movement);
+			Vector2 targetPosition = rigidbody.position + collidedMovement;
+			rigidbody.MovePosition (targetPosition);
+		}
 	}
 
 	Vector2 CheckCollisions (Vector2 movement) {

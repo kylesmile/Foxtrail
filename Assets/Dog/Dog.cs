@@ -13,31 +13,44 @@ public class Dog : MonoBehaviour {
 	public LayerMask scentLayers;
 
 	private Animator animator;
-	private bool caughtFox = false;
 	private MovementController movementController;
+	private Vector2 target = Vector2.zero;
+	private bool active = false;
+	private bool targeting = false;
 
 	void Start () {
 		animator = GetComponent<Animator> ();
 		movementController = GetComponent<MovementController> ();
 	}
-	
-	void Update () {
-		if (caughtFox) {
-			return;
+
+	void FixedUpdate () {
+		if (active) {
+			Smellable scent = Smell ();
+
+			if (scent) {
+				RunTowardsScent (scent);
+			} else {
+				animator.SetBool ("Moving", false);
+			}
+		} else if (targeting) {
+			MoveToTarget ();
 		}
 
-		Smellable scent = Smell ();
-
-		if (scent) {
-			RunTowardsScent (scent);
-		} else {
-			animator.SetBool ("Moving", false);
-		}
 	}
 
 	public void Kill () {
-		caughtFox = true;
+		active = false;
 		animator.SetBool ("Kill", true);
+	}
+
+	public void Stop () {
+		active = false;
+		animator.SetBool ("Moving", false);
+	}
+
+	public void Enter (Vector2 entranceTarget) {
+		targeting = true;
+		target = entranceTarget;
 	}
 
 	private Smellable Smell () {
@@ -55,8 +68,21 @@ public class Dog : MonoBehaviour {
 
 	private void RunTowardsScent (Smellable scent) {
 		animator.SetBool ("Moving", true);
-		Vector3 direction = (scent.transform.position - transform.position).normalized * movementSpeed * Time.deltaTime;
+		Vector3 direction = (scent.transform.position - transform.position).normalized * movementSpeed * Time.fixedDeltaTime;
 		movementController.Move (new Vector2 (direction.x, direction.y));
+	}
+
+	private void MoveToTarget () {
+		animator.SetBool ("Moving", true);
+		Vector2 currentPosition = new Vector2 (transform.position.x, transform.position.y);
+		Vector2 direction = target - currentPosition;
+
+		if (direction.sqrMagnitude < 0.5f) {
+			targeting = false;
+			active = true;
+		} else {
+			movementController.Move(direction.normalized * movementSpeed * Time.fixedDeltaTime);
+		}
 	}
 
 	#if UNITY_EDITOR
