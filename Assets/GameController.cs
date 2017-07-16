@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour {
 		if (foxCollider.IsTouching (endCollider)) {
 			active = false;
 			StopDogs ();
+			end.Unblock ();
 			fox.Exit (end.OffScreen ());
 			Invoke ("Win", endScreenDelay);
 			return;

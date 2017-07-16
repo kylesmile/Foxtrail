@@ -18,4 +18,8 @@ public class LevelEndpoint : MonoBehaviour {
 	public void Block () {
 		blocker.SetActive (true);
 	}
+
+	public void Unblock () {
+		blocker.SetActive (false);
+	}
 }
