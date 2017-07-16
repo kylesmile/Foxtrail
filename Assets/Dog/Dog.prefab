@@ -224,8 +224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bef35d64c86540d5ad280d6399621de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 4
-  scentRadius: 3
+  runSpeed: 3
+  walkSpeed: 1
+  scentRadius: 1
+  patrolTurnFactor: 0.02
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
