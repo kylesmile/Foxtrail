@@ -7,6 +7,8 @@ public class Fox : Smellable {
 	public float movementSpeed = 5.0f;
 	public float crawlSpeed = 1.0f;
 	public float scentDistance = 3.0f;
+	public float runFootstepSeparation = 0.3f;
+	public float crawlFootstepSeparation = 0.7f;
 	public Scent scentPrefab;
 	public LayerMask crawlZoneLayerMask;
 
@@ -18,10 +20,14 @@ public class Fox : Smellable {
 	private bool active = false;
 	private int crawlZoneCount = 0;
 	private MovementController movementController;
+	private AudioSource footsteps;
+	private float lastFootstepTime;
 
 	void Start () {
 		animator = GetComponent<Animator> ();
 		movementController = GetComponent<MovementController> ();
+		footsteps = GetComponent<AudioSource> ();
+		lastFootstepTime = Time.time;
 	}
 
 	void FixedUpdate () {
@@ -32,6 +38,11 @@ public class Fox : Smellable {
 		Vector2 direction = GetMovementDirection ();
 
 		if (direction != Vector2.zero) {
+			float footstepSeparation = crawlZoneCount > 0 ? crawlFootstepSeparation : runFootstepSeparation;
+			if (Time.time - lastFootstepTime > footstepSeparation) {
+				footsteps.Play ();
+				lastFootstepTime = Time.time;
+			}
 			animator.SetBool ("Moving", true);
 			if (crawlZoneCount > 0) {
 				animator.SetBool ("Crawling", false);

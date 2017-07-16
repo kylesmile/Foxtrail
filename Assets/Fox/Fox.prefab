@@ -190,7 +190,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b83f25b23e56f4356aeb3b001cbb1a5f, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -291,6 +291,8 @@ MonoBehaviour:
   movementSpeed: 5
   crawlSpeed: 1
   scentDistance: 1
+  runFootstepSeparation: 0.3
+  crawlFootstepSeparation: 0.5
   scentPrefab: {fileID: 114195442262601874, guid: b98606c75557c471184d08ee4f133339,
     type: 2}
   crawlZoneLayerMask:

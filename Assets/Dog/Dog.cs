@@ -17,13 +17,20 @@ public class Dog : MonoBehaviour {
 	public Direction patrolDirection = Direction.Forward;
 	public LayerMask scentLayers;
 
+	[Header("Sounds")]
+	public AudioClip spotSound;
+	public AudioClip killSound;
+
 	private Animator animator;
 	private MovementController movementController;
 	private bool active = true;
+	private AudioSource audioSource;
+	private bool onTrail = false;
 
 	void Start () {
 		animator = GetComponent<Animator> ();
 		movementController = GetComponent<MovementController> ();
+		audioSource = GetComponent<AudioSource> ();
 	}
 
 	void FixedUpdate () {
@@ -31,8 +38,14 @@ public class Dog : MonoBehaviour {
 			Smellable scent = Smell ();
 
 			if (scent) {
+				if (onTrail == false) {
+					audioSource.clip = spotSound;
+					audioSource.Play ();
+				}
+				onTrail = true;
 				RunTowardsScent (scent);
 			} else {
+				onTrail = false;
 				Patrol ();
 			}
 		}
@@ -40,6 +53,8 @@ public class Dog : MonoBehaviour {
 
 	public void Kill () {
 		active = false;
+		audioSource.clip = killSound;
+		audioSource.Play ();
 		animator.SetBool ("Kill", true);
 	}
 
