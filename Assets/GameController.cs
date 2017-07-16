@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour {
 	public LevelEndpoint start;
 	public LevelEndpoint end;
 	public EndGameScreen endScreen;
+	public ExpositionScreen expositionScreen;
 	public float endScreenDelay = 1.0f;
 	public Camera2DFollow cameraFollow;
 
@@ -32,9 +33,9 @@ public class GameController : MonoBehaviour {
 		dogs = new List<Dog> (dogArray);
 
 		Invoke ("ShowExit", 0.5f);
-		Invoke ("FollowFox", 2.5f);
-		Invoke ("StartFox", 3.0f);
-		Invoke ("ActivateControls", 3.75f);
+//		Invoke ("FollowFox", 2.5f);
+//		Invoke ("StartFox", 3.0f);
+//		Invoke ("ActivateControls", 3.75f);
 	}
 	
 	void FixedUpdate () {
@@ -62,14 +63,23 @@ public class GameController : MonoBehaviour {
 
 	void ShowExit () {
 		cameraFollow.SetTarget (end.onScreenTransform);
+		Invoke ("ShowExposition", 1.0f);
+	}
+
+	void ShowExposition () {
+		expositionScreen.Show ();
+		Invoke ("FollowFox", 3.0f);
 	}
 
 	void FollowFox () {
+		expositionScreen.Hide ();
 		cameraFollow.SetTarget (fox.transform);
+		Invoke ("StartFox", 0.5f);
 	}
 
 	void StartFox () {
 		fox.Enter (start.OnScreen ());
+		Invoke ("ActivateControls", 0.75f);
 	}
 
 	void ActivateControls () {
