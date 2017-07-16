@@ -4,9 +4,11 @@ using UnityEngine;
 
 [RequireComponent(typeof (Animator))]
 public class Fox : Smellable {
-	public float movementSpeed = 1.0f;
+	public float movementSpeed = 5.0f;
+	public float crawlSpeed = 1.0f;
 	public float scentDistance = 3.0f;
 	public Scent scentPrefab;
+	public LayerMask crawlZoneLayerMask;
 
 	private Animator animator;
 	private float accumulatedDistance = 0.0f;
@@ -14,6 +16,7 @@ public class Fox : Smellable {
 	private Vector2 target = Vector2.zero;
 	private bool targeting = false;
 	private bool active = false;
+	private int crawlZoneCount = 0;
 	private MovementController movementController;
 
 	void Start () {
@@ -30,6 +33,9 @@ public class Fox : Smellable {
 
 		if (direction != Vector2.zero) {
 			animator.SetBool ("Moving", true);
+			if (crawlZoneCount > 0) {
+				animator.SetBool ("Crawling", false);
+			}
 			movementController.Move (direction);
 		} else {
 			animator.SetBool ("Moving", false);
@@ -40,6 +46,18 @@ public class Fox : Smellable {
 		if (accumulatedDistance > scentDistance) {
 			accumulatedDistance = 0.0f;
 			Instantiate (scentPrefab, transform.position, transform.rotation);
+		}
+	}
+
+	void OnTriggerEnter2D (Collider2D otherCollider) {
+		if (otherCollider.gameObject.CompareTag("Fence")) {
+			crawlZoneCount++;
+		}
+	}
+
+	void OnTriggerExit2D (Collider2D otherCollider) {
+		if (otherCollider.gameObject.CompareTag("Fence")) {
+			crawlZoneCount--;
 		}
 	}
 
@@ -84,7 +102,13 @@ public class Fox : Smellable {
 
 			float horizontal = Input.GetAxisRaw ("Horizontal");
 			float vertical = Input.GetAxisRaw ("Vertical");
-			return new Vector2 (horizontal, vertical).normalized * movementSpeed * Time.fixedDeltaTime;
+			Vector2 direction = new Vector2 (horizontal, vertical).normalized;
+			if (crawlZoneCount > 0) {
+				direction *= crawlSpeed;
+			} else {
+				direction *= movementSpeed;
+			}
+			return direction * Time.fixedDeltaTime;
 		}
 	}
 }

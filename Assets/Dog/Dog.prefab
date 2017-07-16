@@ -212,7 +212,7 @@ MonoBehaviour:
   skinWidth: 0.015
   obstacleLayers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 22528
 --- !u!114 &114292141649585280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,9 +225,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 3
-  walkSpeed: 1
   scentRadius: 1.2
+  patrolSpeed: 1
   patrolTurnFactor: 0.02
+  patrolDirection: 1
   scentLayers:
     serializedVersion: 2
     m_Bits: 768
