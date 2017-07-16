@@ -8,15 +8,15 @@ using UnityEditor;
 
 [RequireComponent(typeof (Animator))]
 public class Dog : MonoBehaviour {
-	public float movementSpeed = 1.0f;
+	public float runSpeed = 3.0f;
+	public float walkSpeed = 1.0f;
 	public float scentRadius = 3.0f;
+	public float patrolTurnFactor = 0.02f;
 	public LayerMask scentLayers;
 
 	private Animator animator;
 	private MovementController movementController;
-	private Vector2 target = Vector2.zero;
-	private bool active = false;
-	private bool targeting = false;
+	private bool active = true;
 
 	void Start () {
 		animator = GetComponent<Animator> ();
@@ -30,12 +30,9 @@ public class Dog : MonoBehaviour {
 			if (scent) {
 				RunTowardsScent (scent);
 			} else {
-				animator.SetBool ("Moving", false);
+				Patrol ();
 			}
-		} else if (targeting) {
-			MoveToTarget ();
 		}
-
 	}
 
 	public void Kill () {
@@ -45,12 +42,7 @@ public class Dog : MonoBehaviour {
 
 	public void Stop () {
 		active = false;
-		animator.SetBool ("Moving", false);
-	}
-
-	public void Enter (Vector2 entranceTarget) {
-		targeting = true;
-		target = entranceTarget;
+		animator.SetBool ("Chasing", false);
 	}
 
 	private Smellable Smell () {
@@ -67,22 +59,15 @@ public class Dog : MonoBehaviour {
 	}
 
 	private void RunTowardsScent (Smellable scent) {
-		animator.SetBool ("Moving", true);
-		Vector3 direction = (scent.transform.position - transform.position).normalized * movementSpeed * Time.fixedDeltaTime;
+		animator.SetBool ("Chasing", true);
+		Vector3 direction = (scent.transform.position - transform.position).normalized * runSpeed * Time.fixedDeltaTime;
 		movementController.Move (new Vector2 (direction.x, direction.y));
 	}
 
-	private void MoveToTarget () {
-		animator.SetBool ("Moving", true);
-		Vector2 currentPosition = new Vector2 (transform.position.x, transform.position.y);
-		Vector2 direction = target - currentPosition;
-
-		if (direction.sqrMagnitude < 0.5f) {
-			targeting = false;
-			active = true;
-		} else {
-			movementController.Move(direction.normalized * movementSpeed * Time.fixedDeltaTime);
-		}
+	private void Patrol () {
+		animator.SetBool ("Chasing", false);
+		Vector3 direction = transform.TransformDirection ((Vector3.right + Vector3.up * patrolTurnFactor).normalized) * walkSpeed * Time.fixedDeltaTime;
+		movementController.Move (new Vector2 (direction.x, direction.y));
 	}
 
 	#if UNITY_EDITOR

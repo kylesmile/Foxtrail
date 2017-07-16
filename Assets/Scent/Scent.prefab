@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36663730024904a9d930f87b878aad8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  despawnTime: 5
+  despawnTime: 2
 --- !u!212 &212412534533657030
 SpriteRenderer:
   m_ObjectHideFlags: 1

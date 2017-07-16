@@ -6,7 +6,6 @@ using UnityStandardAssets._2D;
 
 public class GameController : MonoBehaviour {
 	public Fox foxPrefab;
-	public Dog dogPrefab;
 	public LevelEndpoint start;
 	public LevelEndpoint end;
 	public EndGameScreen endScreen;
@@ -14,11 +13,10 @@ public class GameController : MonoBehaviour {
 	public Camera2DFollow cameraFollow;
 
 	private Collider2D foxCollider;
-	private Collider2D dogCollider;
 	private Collider2D endCollider;
 	private bool active = false;
 	private Fox fox;
-	private Dog dog;
+	private List<Dog> dogs;
 
 	public void Restart () {
 		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
@@ -30,13 +28,13 @@ public class GameController : MonoBehaviour {
 
 		foxCollider = fox.GetComponent<Collider2D> ();
 
+		Dog[] dogArray = FindObjectsOfType<Dog> ();
+		dogs = new List<Dog> (dogArray);
 
-		dog = Instantiate<Dog> (dogPrefab, start.offScreenTransform.position, Quaternion.identity);
-		dogCollider = dog.GetComponent<Collider2D> ();
-
-		Invoke ("StartFox", 0.5f);
-		Invoke ("ActivateControls", 1.5f);
-		Invoke ("StartDog", 2.5f);
+		Invoke ("ShowExit", 0.5f);
+		Invoke ("FollowFox", 2.5f);
+		Invoke ("StartFox", 3.0f);
+		Invoke ("ActivateControls", 3.75f);
 	}
 	
 	void FixedUpdate () {
@@ -44,17 +42,29 @@ public class GameController : MonoBehaviour {
 			return;
 		}
 
-		if (dogCollider.IsTouching (foxCollider)) {
+		if (foxCollider.IsTouching (endCollider)) {
 			active = false;
-			dog.Kill ();
-			fox.Die ();
-			Invoke ("Lose", endScreenDelay);	
-		} else if (foxCollider.IsTouching (endCollider)) {
-			active = false;
-			dog.Stop ();
+			StopDogs ();
 			fox.Exit (end.OffScreen ());
 			Invoke ("Win", endScreenDelay);
+			return;
 		}
+
+		foreach (Dog dog in dogs) {
+			Collider2D dogCollider = dog.GetComponent<Collider2D> ();
+			if (dogCollider.IsTouching (foxCollider)) {
+				KillFox (dog);
+				return;
+			}
+		}
+	}
+
+	void ShowExit () {
+		cameraFollow.SetTarget (end.onScreenTransform);
+	}
+
+	void FollowFox () {
+		cameraFollow.SetTarget (fox.transform);
 	}
 
 	void StartFox () {
@@ -63,13 +73,25 @@ public class GameController : MonoBehaviour {
 
 	void ActivateControls () {
 		start.Block ();
-		cameraFollow.SetTarget (fox.transform);
+
 		active = true;
 		fox.Activate ();
 	}
 
-	void StartDog () {
-		dog.Enter (start.OnScreen ());
+	void KillFox (Dog killer) {
+		active = false;
+
+		StopDogs ();
+
+		killer.Kill ();
+		fox.Die ();
+		Invoke ("Lose", endScreenDelay);
+	}
+
+	void StopDogs () {
+		foreach (Dog dog in dogs) {
+			dog.Stop ();
+		}
 	}
 
 	void Lose () {
